@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-anchor: none;
+
+    background-color: #092E33;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2344C1DD'/%3E%3Cstop offset='1' stop-color='%23092E33'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%238C0FFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%238C0FFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.38'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.wrapper {
+    background: #efeeeed2;
+    max-width: 500px;
+    border-radius: 20px 4px;
+    padding: 20px 40px;
+    height: 260px;
+    transition: height .2s ease;
+}
+
+.wrapper.active {
+    height: 550px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1rem;
+    color: #3b3030;
+    margin-top: 10px;
+}
+
+.wrapper .form {
+    margin: 20px 0 40px;
+}
+
+.form :where(input, button) {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form input {
+    border: 1px solid #c7c7c7;
+    font-size: 20px;
+    padding: 0 1rem;
+    transition: .1s ease-out;
+}
+
+.form input:focus {
+    border: 3px solid rgba(119, 118, 118, 0.474);
+}
+
+.form input::placeholder {
+    color: rgb(187, 187, 187);
+}
+
+.form button {
+    background-image: linear-gradient(to right, rgb(0, 241, 125), rgb(50, 168, 48));
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    transform: scale(.8);
+    transition: .3s ease;
+}
+
+.form button:hover {
+    transform: scale(.9);
+    outline: 5px double rgb(28, 117, 49);
+}
+
+.form button:focus {
+    transform: scale(1);
+}
+
+.wrapper .qr-code {
+    border: 1px solid #ccc;
+    padding: 33px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper .qr-code img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper.active .qr-code {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity .5s .5s ease;
+    overflow: hidden;
+}
