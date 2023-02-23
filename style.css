@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 * {
     margin: 0;
@@ -37,6 +37,7 @@ body {
 header h1 {
     font-size: 2rem;
     font-weight: bold;
+    text-align: center;
 }
 
 header p {
@@ -113,4 +114,24 @@ header p {
     transition: opacity .5s .5s ease;
     overflow: hidden;
     background-color: white;
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        max-width: 300px;
+        height: 300px;
+    }
+
+    header h1{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .form input::placeholder {
+        font-size: 1rem;
+    }
+
+    .wrapper .qr-code{
+        height: 200px;
+    }
 }
