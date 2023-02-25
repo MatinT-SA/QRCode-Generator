@@ -4,6 +4,7 @@ const wrapper = document.querySelector(".wrapper"),
     qrImg = wrapper.querySelector(".qr-code img");
 
 generateBtn.addEventListener("click", () => {
+    generateBtn.dataset.clicked="true";
     let qrValue = qrInput.value;
     if (!qrValue) {
         generateBtn.style.transform = "scale(.8)";
@@ -24,28 +25,30 @@ qrInput.addEventListener("keyup", () => {
     if (!qrInput.value) {
         wrapper.classList.remove("active");
         generateBtn.style.transform = "scale(.8)";
-        generateBtn.style.outline="none";
+        generateBtn.style.outline = "none";
     }
 });
 
 generateBtn.addEventListener("mouseover", () => {
     generateBtn.style.transform = "scale(.9)";
-    generateBtn.style.outline="5px double rgb(28, 117, 49)";
+    generateBtn.style.outline = "5px double rgb(28, 117, 49)";
 });
 
 generateBtn.addEventListener("mouseout", () => {
     if (!qrInput.value) {
         generateBtn.style.transform = "scale(.8)";
         generateBtn.style.outline = "none";
-    } else {
-        generateBtn.style.transform = "scale(1)";
+    } else if (!generateBtn.dataset.clicked) {
+        generateBtn.style.transform="scale(.8)";
+    } else{
+        generateBtn.style.transform="scale(1)";
     }
 });
 
-generateBtn.addEventListener("focus",()=>{
-    if(!qrInput.value){
+generateBtn.addEventListener("focus", () => {
+    if (!qrInput.value) {
         generateBtn.style.outline = "none";
     } else {
-        generateBtn.style.outline="5px double rgb(28, 117, 49)";
+        generateBtn.style.outline = "5px double rgb(28, 117, 49)";
     }
 })
