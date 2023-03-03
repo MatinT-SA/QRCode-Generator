@@ -4,7 +4,7 @@ const wrapper = document.querySelector(".wrapper"),
     qrImg = wrapper.querySelector(".qr-code img");
 
 generateBtn.addEventListener("click", () => {
-    generateBtn.dataset.clicked="true";
+    generateBtn.dataset.clicked = "true";
     let qrValue = qrInput.value;
     if (!qrValue) {
         generateBtn.style.transform = "scale(.8)";
@@ -20,6 +20,15 @@ generateBtn.addEventListener("click", () => {
     })
     wrapper.classList.add("active");
 });
+
+qrInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        generateBtn.style.transform = "scale(1)";
+        generateBtn.style.outline = "5px double rgb(28, 117, 49)";
+        document.querySelector(".form button").click();
+    }
+})
 
 qrInput.addEventListener("keyup", () => {
     if (!qrInput.value) {
@@ -39,9 +48,9 @@ generateBtn.addEventListener("mouseout", () => {
         generateBtn.style.transform = "scale(.8)";
         generateBtn.style.outline = "none";
     } else if (!generateBtn.dataset.clicked) {
-        generateBtn.style.transform="scale(.8)";
-    } else{
-        generateBtn.style.transform="scale(1)";
+        generateBtn.style.transform = "scale(.8)";
+    } else {
+        generateBtn.style.transform = "scale(1)";
     }
 });
 
